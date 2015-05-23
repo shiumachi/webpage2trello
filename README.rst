@@ -22,10 +22,11 @@ Get Trello API Key, Token, and List name
 
 Go `https://trello.com/1/appKey/generate` to generate a new key.
 
-Then run `https://trello.com/1/authorize?key=YOUR_API_KEY&name=YOUR+TOKEN+NAME&expiration=30days&response_type=token&scope=read,write` from your web browser to get a new API token.
+Then run ``https://trello.com/1/authorize?key=YOUR_API_KEY&name=YOUR+TOKEN+NAME&expiration=30days&response_type=token&scope=read,write`` from your web browser to get a new API token.
 
 Next, go to your board and get the board ID from URL of the page. Run the following python script to check your list ID.
 
+::
 
   import urllib.request
   import json
@@ -34,7 +35,10 @@ Next, go to your board and get the board ID from URL of the page. Run the follow
   res_json = json.loads(response.read().decode())
   print(res_json)
 
+
 Finally, create a new config.ini file with the following format.
+
+::
 
   [trello]
   api_key = YOUR_API_KEY
@@ -48,6 +52,8 @@ Create Web pages List
 
 Create a new list with the following format:
 
+::
+
   TARGET_URL_1
   TARGET_URL_2
   ...
@@ -57,6 +63,8 @@ Run command
 -----------
 
 Run the following command and you can create new Trello cards.
+
+::
 
   python main.py -i WEB_PAGE_LIST -c config.ini
 
