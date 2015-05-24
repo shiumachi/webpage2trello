@@ -57,7 +57,10 @@ if __name__ == '__main__':
     urls = []
     with open(args.input_path) as f:
         for line in f:
-            urls.append(line.strip())
+            url = line.strip()
+            if url == '':
+                continue
+            urls.append(url)
 
     # parse web pages
     webpages = []
